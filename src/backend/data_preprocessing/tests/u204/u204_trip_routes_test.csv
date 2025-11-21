@@ -1,0 +1,2 @@
+trip_id,LINEA,DIR,t_start,t_end,t_start_ts,t_end_ts,idx_start,idx_end,progress_m,mean_dev_m,frac_in,dur_pts,score
+146,Linea_6,IDA,341,349,2024-03-01 09:23:12,2024-03-01 09:27:03,53893,53901,437.2847765162833,12.034363451742983,0.8888888888888888,9,1094.224357658534

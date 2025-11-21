@@ -1,0 +1,35 @@
+.splashLogoContainer {
+    place-items: center;
+}
+
+.splashLogo {
+    position: relative;
+    width: 200px;
+    height: 150px;
+}
+
+.airImg {
+    position: absolute;
+    left: -35%;
+    width: 58%;
+    top: 50%;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.busImg {
+    position: absolute;
+    left: 25%;
+    width: 100%;
+    will-change: transform;
+}
+
+@media (max-width: 500px) {
+    .splashLogo {
+        width: 150px;
+    }
+
+    .airImg {
+        top: 30%;
+    }
+}

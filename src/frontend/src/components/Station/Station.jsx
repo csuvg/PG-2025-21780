@@ -1,0 +1,77 @@
+import PropTypes from 'prop-types'
+import styles from './Station.module.css'
+import { useNavigate } from 'react-router-dom';
+
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
+
+export default function Station({ id, stationName, line, direction }) {
+    const navigate = useNavigate();
+
+    const colorLine = {
+        'Línea 1': '#3F9837',
+        'Línea 2': '#F2A900',
+        'Línea 6': '#E03A3E',
+        'Línea 7': '#0072CE',
+        'Línea 12': '#8C4799',
+        'Línea 13-A': '#FF6F00',
+        'Línea 13-B': '#00A9CE',
+        'Línea 18-A': '#6D6E70',
+        'Línea 18-B': '#D32F2F',
+    }
+
+    const directionText = {
+        'IDA': {
+            'Línea 2': 'Recorrido hacia Hipódromo del Norte',
+            'Línea 6': 'Recorrido hacia Cerro del Carmen',
+            'Línea 7': 'Recorrido hacia Centro',
+            'Línea 12': 'Recorrido hacia Plaza Barrios',
+            'Línea 13-A': 'Recorrido hacia Tipografía',
+            'Línea 13-B': 'Recorrido hacia Hangares',
+            'Línea 18-A': 'Recorrido hacia Francos y Monroy',
+            'Línea 18-B': 'Recorrido hacia Paraíso',
+        },
+        "VUELTA": {
+            'Línea 2': 'Recorrido hacia Jocotengango',
+            'Línea 6': 'Recorrido hacia Proyectos',
+            'Línea 7': 'Recorrido hacia USAC',
+            'Línea 12': 'Recorrido hacia CENMA',
+            'Línea 13-A': 'Recorrido hacia Hangares',
+            'Línea 13-B': 'Recorrido hacia Hangares',
+            'Línea 18-A': 'Recorrido hacia Atlántida',
+            'Línea 18-B': 'Recorrido hacia Atlántida',
+        }
+    }
+
+    // Fallback/default color when `line` is missing from the map or is undefined
+    const defaultColor = '#D1D5DB' // soft gray
+    const fillColor = colorLine[line] ?? defaultColor
+    const directionValue = directionText[direction]?.[line] || 'Recorrido circular';
+
+    const handleSelect = () => {
+        navigate(`/eta/${id}`, { state: { stationName, line, direction } });
+    }
+
+    return (
+        <div className={styles.stationContainer} onClick={handleSelect}>
+            <div className={styles.stationImageContainer}>
+                <svg width="275" height="220" viewBox="0 0 275 220" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.stationImage}>
+                    <path d="M274.174 41.125V164.5C274.174 174.233 268.965 183.143 260.465 188.078V209.052C260.465 214.673 255.805 219.333 250.184 219.333H243.33C237.71 219.333 233.049 214.673 233.049 209.052V191.917H137.09V209.052C137.09 214.673 132.43 219.333 126.809 219.333H119.955C114.335 219.333 109.674 214.673 109.674 209.052V188.078C101.312 183.143 95.9653 174.233 95.9653 164.5V41.125C95.9653 0 137.09 0 185.07 0C233.049 0 274.174 0 274.174 41.125ZM150.799 150.792C150.799 143.252 144.63 137.083 137.09 137.083C129.551 137.083 123.382 143.252 123.382 150.792C123.382 158.331 129.551 164.5 137.09 164.5C144.63 164.5 150.799 158.331 150.799 150.792ZM246.757 150.792C246.757 143.252 240.588 137.083 233.049 137.083C225.509 137.083 219.34 143.252 219.34 150.792C219.34 158.331 225.509 164.5 233.049 164.5C240.588 164.5 246.757 158.331 246.757 150.792ZM246.757 41.125H123.382V95.9583H246.757V41.125ZM68.5487 75.3958C68.1374 56.4783 52.5099 41.125 33.5924 41.8104C29.0916 41.8995 24.6525 42.8745 20.5286 44.6796C16.4047 46.4847 12.6768 49.0846 9.55797 52.3308C6.4391 55.577 3.99034 59.4058 2.35155 63.5986C0.712765 67.7914 -0.0839251 72.2659 0.00699032 76.7667C0.186022 84.542 2.99395 92.0273 7.9729 98.002C12.9518 103.977 19.8081 108.088 27.4237 109.667V219.333H41.132V109.667C57.3078 106.377 68.5487 91.9829 68.5487 75.3958Z"
+                    fill={fillColor}/>
+                </svg>
+            </div>
+            <div className={styles.stationInfo}>
+                <span className={styles.stationName}>{stationName}</span>
+                <span className={styles.stationLine}>{line}</span>
+                <span className={styles.stationDirection}>{directionValue}</span>
+            </div>
+            <ArrowCircleRightIcon className={styles.arrowIcon} />
+        </div>
+    )
+}
+
+Station.propTypes = {
+    id: PropTypes.number.isRequired,
+    stationName: PropTypes.string.isRequired,
+    line: PropTypes.string.isRequired,
+    direction: PropTypes.string.isRequired,
+}

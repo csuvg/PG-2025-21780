@@ -1,0 +1,71 @@
+.warningPage {
+    min-height: 100svh;
+    display: grid;
+    grid-template-rows: auto 1fr; /* header + contenido */
+    color: #666666;
+    align-items: center;
+    justify-items: center;
+}
+
+.content {
+    display: grid;
+    place-items: center;       /* centra vertical y horizontal */
+    text-align: center;
+    width: 90%;
+}
+
+.warningImageContainer {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+}
+
+.warningImage{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.bigTitle {
+    font-family: 'LemonMilk', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #3F9837;
+}
+
+.importantText {
+    font-weight: 600;
+    color: #000000;
+}
+
+
+.btnRow {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.btnWarn {
+    background-color: #3F9837;
+}
+
+.btnWarn:hover {
+    background-color: #36832e;
+    cursor: pointer;
+}
+
+@media (max-width: 400px) {
+    .warningImageContainer {
+        width: 80px;
+        height: 80px;
+    }
+    .bigTitle {
+        font-size: 2rem;
+    }
+    .content {
+        font-size: 0.9rem;
+    }
+}

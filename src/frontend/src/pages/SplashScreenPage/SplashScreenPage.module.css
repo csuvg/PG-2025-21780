@@ -1,0 +1,51 @@
+.splashScreenPage {
+  position: relative;              /* necesario para el overlay absoluto */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;                  /* cubrir viewport móvil/desktop */
+  text-align: center;
+  background-color: #3F9837;
+  overflow: hidden;             /* ocultar las rayas entrando */
+  transition: background-color 2.0s ease;
+}
+
+.whiteBackground {
+  background-color: white;
+}
+
+
+.bigTitle {
+  font-family: 'LemonMilk', sans-serif;
+  font-size: 90px;
+  font-weight: 500;
+  color: white;
+}
+
+@media (max-width: 700px) {
+  .bigTitle { font-size: 60px; }
+}
+@media (max-width: 450px) {
+  .bigTitle { font-size: 40px; }
+}
+
+/* Overlay que contendrá las rayas */
+.overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;                      /* se activa con GSAP */
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: repeat(var(--n, 16), 1fr);  /* columnas iguales */
+  background: transparent;         /* al final las rayas cubren todo */
+  z-index: 10;                     /* por encima del splash */
+  gap: 0;
+}
+
+/* Cada raya blanca, inicia desplazada a la derecha (via GSAP) */
+.stripe {
+  background: #fff;
+  transform: translateX(-100%);     /* estado inicial; GSAP anima a 0 */
+  will-change: transform;
+}
