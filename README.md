@@ -242,7 +242,7 @@ El informe final está disponible en:
 Carné 21780</br>
 Universidad del Valle de Guatemala
 
-![Static Badge](https://img.shields.io/badge/github-pabloozamora-blue?logo=github)
+[![Static Badge](https://img.shields.io/badge/github-pabloozamora-blue?logo=github)](https://github.com/pabloozamora)
 
 <!-- Imágenes y links -->
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
