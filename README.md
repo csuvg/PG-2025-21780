@@ -65,20 +65,22 @@ Backend (API)
 
 ```powershell
 # Crear y activar un entorno virtual (PowerShell)
+cd src/backend/api/
 python -m venv .venv
 .\.venv\Scripts\Activate
 ```
 
 ```bash
 # Crear y activar un entorno virtual (Bash)
+cd src/backend/api/
 python -m venv .venv
 source .venv/bin/activate
 ```
 
 ```bash
-# Instalar dependencias del backend
+# Instalar dependencias del backend una vez creado y activado el entorno virtual
 pip install --upgrade pip
-pip install -r src/backend/api/requirements.txt
+pip install -r requirements.txt
 ```
 
 Notas:
@@ -97,20 +99,39 @@ También es posible utilizar los gestores de paquetes `pnpm` y `yarn` en lugar d
 
 ## ▶️ Ejecución del proyecto
 
-Iniciar el backend (desde la raíz del repo)
+**Configurar modelos(s) a utilizar por el backend**
+
+Se debe indicar el *Path* absoluto del modelo a utilizar para relizar las predicciones
+en `src/backend/api/models.py`:
 
 ```bash
-# Opción A: ejecutar desde la raíz usando módulo Python
-python -m uvicorn src.backend.api.main:app --reload --port 8000
+MODEL_PATH = <PATH_ABSOLUTO_DE_MODELO_SELECCIONADO>
+```
 
-# Opción B: entrar al directorio del API y ejecutar
+Los modelos se encuentran en `src/backend/models/` y puede elegirse entre modelos LightGBM y XGBoost.
+
+
+**Configurar variables de entorno del frontend (opcional, pero recomendado)**
+
+Crear un archivo .env en `src/frontend/` con la variable de entorno `VITE_GOOGLE_MAPS_API_KEY`, tal como se muestra
+en el archivo de ejemplo .env.example:
+
+```bash
+VITE_GOOGLE_MAPS_API_KEY = <API_KEY_VÁLIDA_DE_GOOGLE_MAPS>
+```
+
+Esto permite visualizar la posición de la mejor unidad candidata en un mapa de Google Maps. No es necesaria para mostrar las predicciones, pero se recomienda para una mejor experiencia de usuario.
+
+**Iniciar el backend**
+
+```bash
 cd src/backend/api
 python -m uvicorn main:app --reload --port 8000
 ```
 
-El servidor FastAPI quedará escuchando en `http://127.0.0.1:8000`. La documentación automática estará en `http://127.0.0.1:8000/docs`.
+El servidor FastAPI quedará escuchando en `http://localhost:8000`. La documentación automática estará en `http://localhost:8000/docs`.
 
-Iniciar el frontend (desde `src/frontend`)
+**Iniciar el frontend**
 
 ```powershell
 cd src\frontend
