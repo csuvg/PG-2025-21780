@@ -101,7 +101,7 @@ También es posible utilizar los gestores de paquetes `pnpm` y `yarn` en lugar d
 
 **Configurar modelos(s) a utilizar por el backend**
 
-Se debe indicar el *Path* absoluto del modelo a utilizar para relizar las predicciones
+Se debe indicar el *Path* absoluto del modelo que utilizará el backend para realizar las predicciones
 en `src/backend/api/models.py`:
 
 ```bash
@@ -129,7 +129,7 @@ cd src/backend/api
 python -m uvicorn main:app --reload --port 8000
 ```
 
-El servidor FastAPI quedará escuchando en `http://localhost:8000`. La documentación automática estará en `http://localhost:8000/docs`.
+El servidor FastAPI quedará escuchando en `http://localhost:8000`. La documentación automática estará disponible en `http://localhost:8000/docs`.
 
 **Iniciar el frontend**
 
