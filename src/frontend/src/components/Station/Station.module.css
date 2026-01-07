@@ -1,0 +1,52 @@
+.stationContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem;
+    border: 1px solid #CCCCCC;
+    border-radius: 10px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.stationContainer:hover {
+    cursor: pointer;
+    border-color: #3F9837;
+    box-shadow: 0 4px 8px rgba(63, 152, 55, 0.2);
+}
+
+.stationImage {
+    width: 60px;
+    height: 60px;
+    margin-right: 1rem;
+    object-fit: contain;
+}
+
+.stationInfo {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.stationName {
+    font-weight: bold;
+    color: #000000;
+}
+
+.arrowIcon{
+    margin-left: auto;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    color: #3F9837;
+}
+
+@media (max-width: 400px) {
+    .stationContainer {
+        padding: 0.5rem;
+    }
+    .stationImage {
+        width: 40px;
+        height: 40px;
+        margin-right: 0.5rem;
+    }
+}

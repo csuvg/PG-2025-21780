@@ -1,0 +1,42 @@
+.header {
+  position: sticky; /* o fixed si quieres que quede fijo al hacer scroll */
+  top: 0;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  background: transparent; /* o un color si quieres */
+  z-index: 1;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.2rem;
+    margin-top: 20px;
+}
+
+.title {
+    font-family: 'LemonMilk', sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #3F9837;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #666666;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 1.5rem;
+    }
+    .subtitle {
+        font-size: 0.875rem;
+    }
+}

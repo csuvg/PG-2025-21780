@@ -1,0 +1,87 @@
+.tripDurationPage {
+    min-height: 100svh;
+    display: grid;
+    grid-template-rows: auto 1fr; /* header + contenido */
+    color: #666666;
+    justify-items: center;
+}
+
+.content {
+    display: grid;
+    place-items: center;       /* centra vertical y horizontal */
+    text-align: center;
+    width: 90%;
+}
+
+.stationsInfo {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.stationTitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.lineTitle {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.rightArrowIcon {
+    font-size: 3rem;
+    color: #3F9837;
+}
+
+.etaTitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: #3F9837;
+}
+
+.etaTime {
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0;
+    color: #3F9837;
+    font-family: 'LemonMilk', sans-serif;
+}
+
+.etaInfo {
+    color: #3F9837;
+    margin-bottom: 0;
+}
+
+.mapContainer {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mapLabel {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #666666;
+}
+
+
+@media (max-width: 400px) {
+    .content {
+        font-size: 0.9rem;
+    }
+    .stationsInfo {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .rightArrowIcon {
+        transform: rotate(90deg);
+    }
+}
